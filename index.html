@@ -2250,19 +2250,21 @@ class PdfDoc{
     const c=color||[0,0,0];
     this.currentContent.push(`${c[0]/255} ${c[1]/255} ${c[2]/255} RG\n${width||0.5} w\n${x1} ${y1} m ${x2} ${y2} l S`);
   }
-  paragraph(str,x,y,width,fontSize,isBold,color,leading){
+  // beforeLine (optional): wird vor jeder Zeile aufgerufen und liefert die tatsächliche y-Position (Seitenumbruch im Absatz)
+  paragraph(str,x,y,width,fontSize,isBold,color,leading,beforeLine){
     if(!leading) leading=fontSize*1.4;
     const words=String(str).split(/\s+/); let line=''; let curY=y;
+    const put=(s)=>{ if(beforeLine) curY=beforeLine(curY); this.text(s,x,curY,fontSize,isBold,color); curY-=leading; };
     for(const word of words){
       if(!word) continue;
       const test=line?line+' '+word:word;
       if(pdfStringWidth(test,fontSize,isBold)<=width){ line=test; }
       else{
-        if(line){ this.text(line,x,curY,fontSize,isBold,color); curY-=leading; line=word; }
-        else{ this.text(word,x,curY,fontSize,isBold,color); curY-=leading; }
+        if(line){ put(line); line=word; }
+        else{ put(word); }
       }
     }
-    if(line){ this.text(line,x,curY,fontSize,isBold,color); curY-=leading; }
+    if(line) put(line);
     return curY;
   }
   build(){
@@ -2436,7 +2438,7 @@ function generateOverviewPdf(){
     doc.text(note.room,M,y2,12.5,true,PRIMARY);
     doc.line(M,y2-4,M+CW,y2-4,ACCENT,0.8);
     y2-=18;
-    y2=doc.paragraph(note.text,M,y2,CW,10.5,false,TEXT,14.5);
+    y2=doc.paragraph(note.text,M,y2,CW,10.5,false,TEXT,14.5,yy=>ensure2(yy,0));   // lange Erläuterungen umbrechen
     y2-=14;
   }
   // Vermerk für die Lehrkraft: Wurde eine Zwischenstand-Datei geladen – und wo ging es weiter?
