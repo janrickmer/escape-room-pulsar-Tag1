@@ -322,22 +322,50 @@ p.body-lg{ font-size:16.5px; line-height:1.7; }
 .reveal-progress-letter{ width:38px; height:46px; display:flex; align-items:center; justify-content:center; font-family:var(--font-display); font-size:22px; font-weight:800; color:var(--ink-mute); background:var(--surface-alt); border:1px solid var(--border); border-radius:7px; }
 .reveal-progress-letter.lit{ color:var(--primary-dark); background:var(--accent-bright); border-color:var(--accent-bright); }
 
-/* ---------- Final ---------- */
-.final-hero{ text-align:center; margin-bottom:30px; }
-.final-code{ font-family:var(--font-display); font-size:clamp(54px,12vw,104px); font-weight:800; letter-spacing:0.08em; color:var(--primary); line-height:1; }
-.final-actions{ display:grid; gap:14px; }
-.final-action{ display:block; width:100%; text-align:left; background:var(--surface-alt); border:1.5px solid var(--border); border-radius:11px; padding:18px 20px; cursor:pointer; transition:all .2s ease; font-family:var(--font-body); }
-.final-action:hover{ border-color:var(--primary); box-shadow:var(--shadow-sm); }
-.final-action .label{ font-family:var(--font-mono); font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--accent); font-weight:600; }
-.final-action .title{ font-family:var(--font-display); font-size:18px; font-weight:700; color:var(--ink); margin:3px 0 4px; }
-.final-action .desc{ font-size:13.5px; color:var(--ink-soft); }
+/* ---------- Zwischenstand-Seite (nach dem letzten Rätselraum, vor dem Finale) ---------- */
+.mid-hero{ text-align:center; margin-bottom:18px; }
+.mid-hero .section-title{ font-size:clamp(26px,3.6vw,34px); margin-bottom:2px; }
+.mid-steps{ display:flex; justify-content:center; align-items:center; gap:10px; flex-wrap:wrap; margin:12px 0 0; }
+.mid-step{ display:inline-flex; align-items:center; gap:8px; padding:8px 14px; border-radius:999px; border:1.5px solid var(--border); background:var(--surface); font-family:var(--font-mono); font-size:11px; letter-spacing:.12em; text-transform:uppercase; font-weight:800; color:var(--ink-mute); }
+.mid-step.done{ border-color:var(--success); background:var(--success-bg); color:var(--success); }
+.mid-step.next{ border-color:var(--primary); background:var(--primary-soft); color:var(--primary-dark); }
+.code-badge{ display:inline-flex; align-items:baseline; gap:10px; padding:5px 14px; border-radius:12px; background:var(--surface); border:1.5px solid var(--border); box-shadow:var(--shadow-sm); font-family:var(--font-display); font-size:20px; font-weight:700; letter-spacing:.14em; color:var(--primary-dark); }
+.code-badge small{ font-family:var(--font-mono); font-size:10.5px; letter-spacing:.12em; text-transform:uppercase; color:var(--ink-mute); font-weight:800; }
+.pause-card{ margin-top:18px; padding:20px 22px; border:2px dashed var(--border); border-radius:14px; background:var(--surface-alt); }
+.pause-btn{ display:inline-flex; align-items:center; gap:10px; background:var(--surface); color:var(--primary-dark); border:2px solid var(--primary); border-radius:12px; padding:13px 20px; font-family:var(--font-body); font-size:15px; font-weight:800; text-align:left; cursor:pointer; transition:all .2s ease; }
+.pause-btn:hover{ background:var(--primary-soft); transform:translateY(-1px); }
+.pause-btn svg{ width:20px; height:20px; flex:none; }
+.readmore{ display:flex; align-items:center; gap:14px; margin:40px 0 16px; font-family:var(--font-mono); font-size:11px; letter-spacing:.14em; text-transform:uppercase; font-weight:800; color:var(--ink-mute); }
+.readmore::before, .readmore::after{ content:''; flex:1; height:1px; background:var(--border); }
 .font-mono{ font-family:var(--font-mono); }
+
+/* ---- Arena: das große Finale gegen den Feiditor (dunkel, dramatisch) ---- */
+.arena .video-wrap{ max-width:760px; margin:0 auto 22px; }
+.arena .fallback-line{ justify-content:center; max-width:760px; margin:-8px auto 22px; color:#b9c4d8; }
+.arena .fallback-line .btn-ghost{ color:#f0cf78; border-color:rgba(240,207,120,.5); }
+.arena{ background:radial-gradient(120% 90% at 50% 0%, #17223a 0%, #0b1220 55%, #070c16 100%); color:#e9eef7; border-radius:14px; padding:26px 28px 26px; margin-top:22px; box-shadow:0 18px 50px rgba(0,0,0,.45); border:1px solid rgba(255,255,255,.06); }
+.arena-kicker{ font-family:var(--font-mono); font-size:11px; letter-spacing:.28em; text-transform:uppercase; color:#d6b25e; font-weight:600; text-align:center; }
+.arena h2{ font-family:var(--font-display); font-size:26px; font-weight:700; color:#fff; text-align:center; margin:6px 0 14px; letter-spacing:.01em; }
+.arena p{ max-width:620px; margin:0 auto 22px; text-align:center; font-size:15px; line-height:1.6; color:#b9c4d8; }
+.arena-gate{ display:block; width:100%; max-width:760px; margin:0 auto; padding:0; border:0; background:transparent; cursor:pointer; position:relative; border-radius:12px; overflow:hidden; outline:none; }
+.arena-gate svg{ display:block; width:100%; height:auto; }
+.arena-gate .gate-glow{ opacity:0; transition:opacity .4s ease; }
+.arena-gate:hover .gate-glow, .arena-gate:focus-visible .gate-glow{ opacity:1; }
+.arena-gate .gate-field{ transition:filter .3s ease; }
+.arena-gate:hover .gate-field{ filter:brightness(1.2); }
+.arena-gate:focus-visible{ box-shadow:0 0 0 3px #d6b25e; }
+/* Button im Gang: sitzt unten über dem Bild, der ganze Gang ist klickbar */
+.arena-enter{ position:absolute; left:50%; bottom:22px; transform:translateX(-50%); display:inline-flex; align-items:center; gap:10px; background:linear-gradient(135deg,#f0cf78,#d6b25e); color:#1a1305; font-family:var(--font-body); font-size:15.5px; font-weight:800; padding:14px 26px; border-radius:999px; box-shadow:0 8px 24px rgba(0,0,0,.55); white-space:nowrap; pointer-events:none; transition:transform .2s ease, box-shadow .2s ease; }
+.arena-gate:hover .arena-enter, .arena-gate:focus-visible .arena-enter{ transform:translateX(-50%) translateY(-3px); box-shadow:0 12px 30px rgba(0,0,0,.6); }
+.arena-foot{ text-align:center; font-size:12.5px; color:#7f8cab; margin-top:16px; }
+@media (max-width:600px){ .arena{ padding:26px 16px 22px; } .arena h2{ font-size:24px; } .arena-enter{ white-space:normal; text-align:center; max-width:92%; font-size:13px; line-height:1.25; padding:10px 16px; bottom:12px; gap:6px; } }
 .muted-list{ margin:6px 0 0 18px; }
 .muted-list li{ margin-bottom:6px; color:var(--ink-soft); font-size:14px; }
 
 /* Emblem (Kompass) */
 .emblem-wrap{ text-align:center; margin:10px 0 4px; }
 .emblem-wrap svg{ max-width:300px; width:100%; height:auto; }
+.emblem-wrap.small svg{ max-width:170px; }
 .emblem-cap{ text-align:center; font-family:var(--font-mono); font-size:9.5px; letter-spacing:0.08em; color:var(--ink-mute); margin-top:6px; }
 
 /* Steckbrief */
@@ -949,6 +977,24 @@ function fmtDateTime(d){
   return date+', '+time+' Uhr';
 }
 
+/* Überblicksseiten einer hochgeladenen PDF: alle Seiten der Überblick-PDF aus dem Escape-Room bzw. die mit OVERVIEW_MARK
+   markierten Seiten einer Feiditor-PDF. Beide Dateien stammen aus den eigenen PDF-Writern (unkomprimierte Streams, nur
+   /F1 und /F2), die Content-Streams lassen sich daher unverändert in die fertige PDF übernehmen. */
+const OVERVIEW_MARK="%ESCAPE-OVERVIEW";
+function overviewStreamsFrom(str){
+  const all=/%ESCAPEDATA /.test(str)&&!/%TRACKDATA /.test(str);   // reine Überblick-PDF: jede Seite ist eine Überblicksseite
+  // Feiditor-PDFs vor dem 04.10.2026 tragen keine Markierung: dort zählt eine Seite, deren erster Text ein Überblick-Titel ist
+  const TITLE=/\((?:\xDCberblick deiner Antworten & Erl\xE4uterungen|L\xF6sungserl\xE4uterungen)\) Tj/;
+  const out=[]; const re=/<<\s*\/Length (\d+)\s*>>\s*stream\r?\n/g; let m;
+  while((m=re.exec(str))){
+    const start=m.index+m[0].length, n=parseInt(m[1],10); if(!(n>0)) continue;
+    const body=str.substr(start,n); re.lastIndex=start+n;
+    if(body.startsWith(OVERVIEW_MARK+"\n")) out.push(body.slice(OVERVIEW_MARK.length+1).replace(/\n+$/,""));
+    else if(all||TITLE.test(body.slice(0,400))) out.push(body.replace(/\n+$/,""));
+  }
+  return out;
+}
+
 /* ============================================================
    ESCAPE-ROOM-ÜBERSICHTS-SEITEN
    Jeder Escape-Room ergänzt an dieser Stelle seine eigene Funktion
@@ -956,7 +1002,148 @@ function fmtDateTime(d){
    Seiten). Fehlt sie – wie im Standalone- und Lerntagebuch-Feiditor –,
    hat die PDF keine Übersichts-Seiten.
    ============================================================ */
-/* @@ESCAPE_OVERVIEW@@ */
+function buildOverviewPages(ov){
+  const doc=new PdfDoc();
+  const W=doc.pageW,H=doc.pageH,M=doc.margin; const CW=W-2*M;
+  const PRIMARY=[184,134,11], ACCENT=[166,124,0], RED=[196,61,43], GREEN=[47,138,68], MUTE=[106,120,150], TEXT=[42,26,12];
+  const attempts=Array.isArray(ov.attempts)?ov.attempts:[];
+  const mistakes=Array.isArray(ov.mistakes)?ov.mistakes:[];
+  const roomLabels=Array.isArray(ov.roomLabels)?ov.roomLabels:[];
+  const notes=Array.isArray(ov.solutionNotes)?ov.solutionNotes:[];
+  const subtitle=ov.subtitle||'';
+
+  function header(title){
+    doc.startPage();
+    doc.rect(0,H-72,W,72,PRIMARY);
+    doc.text(title,M,H-38,18,true,[255,255,255]);
+    if(subtitle) doc.text(subtitle,M,H-58,9,false,[252,240,205]);
+    return H-72-22;
+  }
+  function ensure(y,need){ if(y-need<70){ doc.endPage(); return header('Überblick deiner Antworten & Erläuterungen'); } return y; }
+  // Absatz zeilenweise setzen und vor jeder Zeile den Seitenumbruch prüfen (die Engine-PdfDoc kennt kein beforeLine)
+  function paragraphBreak(str,x,y,width,size,bold,color,leading,ensureFn){
+    let line='', curY=y;
+    const put=(s)=>{ curY=ensureFn(curY,leading); doc.text(s,x,curY,size,bold,color); curY-=leading; };
+    for(const w of String(str).split(/\s+/).filter(Boolean)){ const t=line?line+' '+w:w; if(pdfStringWidth(t,size,bold)<=width) line=t; else { if(line) put(line); line=w; } }
+    if(line) put(line);
+    return curY;
+  }
+
+  let y=header('Überblick deiner Antworten & Erläuterungen');
+
+  // Pflichthinweis (fett, ganz oben)
+  doc.rect(M,y-44,CW,44,[255,246,212]);
+  doc.rect(M,y-44,3,44,ACCENT);
+  doc.paragraph('Diese Datei musst du bei Moodle in der dafür vorgesehenen Abgabe hochladen, um deinem Lehrer nachzuweisen, dass du den Escape-Room erfolgreich absolviert hast.',
+    M+12,y-16,CW-24,10.5,true,PRIMARY,13.5);
+  y-=44+14;
+
+  // Identifikationsblock
+  const blockH=78;
+  doc.rect(M,y-blockH,CW,blockH,[252,243,214]);
+  doc.rect(M,y-blockH,3,blockH,ACCENT);
+  doc.text('NAME',M+14,y-16,8,true,ACCENT);
+  const nameStr=(ov.firstName||'')+' '+(ov.lastName||'');
+  doc.text(nameStr,M+14,y-31,pdfStringWidth(nameStr,13,true)>270?10:13,true,PRIMARY);   // lange Namen kleiner, damit sie nicht in die Code-Spalte laufen
+  doc.text('GEBURTSDATUM',M+14,y-49,8,true,ACCENT);
+  doc.text(ov.birthDate||'',M+14,y-63,11,false,TEXT);
+  doc.text('BESTÄTIGUNGSCODE',M+300,y-16,8,true,ACCENT);
+  doc.text(String(ov.code||''),M+300,y-31,13,true,PRIMARY);
+  doc.text('ABGESCHLOSSEN AM',M+300,y-49,8,true,ACCENT);
+  doc.text(ov.completedAt||'',M+300,y-63,11,false,TEXT);
+  y-=blockH+18;
+
+  y=doc.paragraph('Dieses Dokument fasst zusammen, welche Antworten du in jeder Station beim ersten Versuch gegeben hast. Du hast jede Station am Ende erfolgreich gelöst – diese Übersicht zeigt nur, wo es anfangs noch hakte. Auf den folgenden Seiten findest du ausführliche Lösungserläuterungen.',
+    M,y,CW,10.5,false,TEXT,14);
+  y-=8;
+
+  const totalErrors=mistakes.reduce((a,m)=>a+(m&&m.errors?m.errors.length:0),0);
+  const perfectRooms=attempts.filter((a,i)=>a>=1 && (!mistakes[i]||!mistakes[i].errors||mistakes[i].errors.length===0)).length;
+  doc.rect(M,y-34,CW,34,[231,245,234]);
+  doc.rect(M,y-34,3,34,GREEN);
+  doc.text('ÜBERSICHT',M+14,y-13,8,true,GREEN);
+  doc.text(`Stationen im ersten Versuch fehlerfrei: ${perfectRooms} von ${roomLabels.length}   ·   Fehler im ersten Versuch insgesamt: ${totalErrors}`,M+14,y-26,10.5,true,TEXT);
+  y-=48;
+
+  for(let i=0;i<roomLabels.length;i++){
+    y=ensure(y,64);
+    doc.text(roomLabels[i],M,y,12.5,true,PRIMARY);
+    doc.line(M,y-4,M+CW,y-4,ACCENT,0.8);
+    y-=18;
+    const att=attempts[i]; const m=mistakes[i];
+    const attemptsLabel=att===1?'1 Versuch':att+' Versuche';
+    if(!m||!m.errors||m.errors.length===0){
+      y=doc.paragraph('Fehlerfrei beim ersten Versuch gelöst. ('+attemptsLabel+')',M,y,CW,10.5,true,GREEN,14); y-=8; continue;
+    }
+    y=doc.paragraph('Benötigt: '+attemptsLabel+'. Beim ersten Versuch war Folgendes nicht korrekt:',M,y,CW,10.5,false,MUTE,14); y-=4;
+    for(const err of m.errors){
+      y=ensure(y,52);
+      doc.text('•',M,y,11,true,RED);
+      if(err.kind==='mc_falsch'){
+        y=doc.paragraph(err.item,M+14,y,CW-14,10.5,true,TEXT,13);
+        y=doc.paragraph('Deine Wahl: '+err.wrongAnswer,M+14,y,CW-14,10,false,RED,13);
+        y=doc.paragraph('Richtig: '+err.correctAnswer,M+14,y,CW-14,10,true,GREEN,13);
+      } else if(err.kind==='luecke_falsch'){
+        y=doc.paragraph(err.item,M+14,y,CW-14,10.5,true,TEXT,13);
+        y=doc.paragraph('Deine Wahl: '+err.wrongAnswer+'   ·   Richtig: '+err.correctAnswer,M+14,y,CW-14,10,false,MUTE,13);
+      } else if(err.kind==='zuordnung_falsch'){
+        y=doc.paragraph(err.item,M+14,y,CW-14,10.5,true,TEXT,13);
+        y=doc.paragraph('Du zugeordnet: '+err.wrongAnswer+'   ·   Richtig: '+err.correctAnswer,M+14,y,CW-14,10,false,MUTE,13);
+      } else if(err.kind==='falsch_gewaehlt'){
+        y=doc.paragraph('Falsch ausgewählt: "'+err.item+'"',M+14,y,CW-14,10.5,true,TEXT,13);
+        if(err.explanation) y=doc.paragraph('→ '+err.explanation,M+14,y,CW-14,10,false,MUTE,13);
+      } else if(err.kind==='uebersehen'){
+        y=doc.paragraph('Übersehen (gehörte dazu): "'+err.item+'"',M+14,y,CW-14,10.5,true,TEXT,13);
+        if(err.explanation) y=doc.paragraph('→ '+err.explanation,M+14,y,CW-14,10,false,MUTE,13);
+      } else if(err.kind==='falsch_einsortiert'){
+        y=doc.paragraph('"'+err.item+'"',M+14,y,CW-14,10.5,true,TEXT,13);
+        y=doc.paragraph('Du gewählt: '+err.wrongAnswer+'   ·   Richtig: '+err.correctAnswer,M+14,y,CW-14,10,false,MUTE,13);
+      } else if(err.kind==='falsche_eingabe'){
+        y=doc.paragraph(err.item,M+14,y,CW-14,10.5,true,TEXT,13);
+        y=doc.paragraph('Deine Eingabe: "'+err.wrongAnswer+'"   ·   Richtig: '+err.correctAnswer,M+14,y,CW-14,10,false,MUTE,13);
+      }
+      y-=5;
+    }
+    y-=10;
+  }
+
+  y=ensure(y,40);
+  doc.line(M,y,M+CW,y,[200,200,200],0.4); y-=14;
+  doc.text('Bestätigungscode für Moodle: '+String(ov.code||''),M,y,10,true,PRIMARY);
+  y-=22;
+  doc.text('Copyright Jan-Rickmer Feindt',M,y,8.5,false,MUTE);
+  doc.endPage();
+
+  /* ---- Lösungserläuterungen ---- */
+  if(notes.length){
+    let y2=header('Lösungserläuterungen');
+    y2=doc.paragraph('Hier werden die richtigen Lösungen der sechs Stationen noch einmal genauer erklärt. Nutze diese Seite, um den Stoff der Sitzung zu vertiefen.',M,y2,CW,10.5,false,TEXT,14);
+    y2-=10;
+    function ensure2(y,need){ if(y-need<70){ doc.endPage(); return header('Lösungserläuterungen'); } return y; }
+    for(const note of notes){
+      y2=ensure2(y2,90);
+      doc.text(note.room,M,y2,12.5,true,PRIMARY);
+      doc.line(M,y2-4,M+CW,y2-4,ACCENT,0.8);
+      y2-=18;
+      y2=paragraphBreak(note.text,M,y2,CW,10.5,false,TEXT,14.5,ensure2);   // lange Erläuterungen umbrechen
+      y2-=14;
+    }
+    // Vermerk für die Lehrkraft: Wurde eine Zwischenstand-Datei geladen – und wo ging es weiter?
+    if(Array.isArray(ov.resumeNotes)&&ov.resumeNotes.length){
+      y2=ensure2(y2,60);
+      doc.text('Verwendung von Zwischenstand-Dateien',M,y2,12.5,true,PRIMARY);
+      doc.line(M,y2-4,M+CW,y2-4,ACCENT,0.8);
+      y2-=18;
+      for(const line of ov.resumeNotes){ y2=paragraphBreak(String(line),M,y2,CW,10.5,false,TEXT,14.5,ensure2); y2-=2; }
+      y2-=12;
+    }
+    y2=ensure2(y2,30);
+    doc.line(M,y2,M+CW,y2,[200,200,200],0.4); y2-=14;
+    doc.text('Copyright Jan-Rickmer Feindt',M,y2,8.5,false,MUTE);
+    doc.endPage();
+  }
+  return doc.pages.map(p=>p.content);
+}
 
 function buildPdf(opts){
   const PW=595.28,PH=841.89, ML=56,MR=56,MT=56,MB=64;
@@ -990,8 +1177,10 @@ function buildPdf(opts){
     pages.push({lines:pageLines});
   }
   const nPages=pages.length;
-  // Übersichts-Seiten (aus dem Escape-Room) werden hinter die Aufgaben-Seiten gehängt
-  const ovStreams=(opts.overview&&typeof buildOverviewPages==="function")?buildOverviewPages(opts.overview):[];
+  // Übersichts-Seiten (aus dem Escape-Room) werden hinter die Aufgaben-Seiten gehängt: im eingebetteten Feiditor neu
+  // erzeugt, im eigenständigen Feiditor aus der hochgeladenen Überblick- bzw. Zwischenstand-PDF übernommen
+  const ovStreams=(opts.overview&&typeof buildOverviewPages==="function")?buildOverviewPages(opts.overview)
+    :(Array.isArray(opts.overviewStreams)?opts.overviewStreams:[]);
   const nAll=nPages+ovStreams.length;
 
   const noteText="Bitte diese PDF-Datei herunterladen und bei Moodle hochladen.";
@@ -1052,7 +1241,7 @@ function buildPdf(opts){
   for(let k=0;k<ovStreams.length;k++){
     const i=nPages+k;
     objects[pageObjNum(i)]=`<< /Type /Page /Parent 2 0 R /MediaBox [0 0 ${PW.toFixed(2)} ${PH.toFixed(2)}] /Resources << /Font << /F1 3 0 R /F2 4 0 R /F3 5 0 R /F4 6 0 R >> >> /Contents ${contObjNum(i)} 0 R >>`;
-    objects[contObjNum(i)]={stream:ovStreams[k]+"\n"};
+    objects[contObjNum(i)]={stream:OVERVIEW_MARK+"\n"+ovStreams[k]+"\n"};   // markiert: so findet der eigenständige Feiditor die Seiten beim Fortsetzen
   }
 
   let pdf="%PDF-1.7\n%\u00E2\u00E3\u00CF\u00D3\n";
@@ -1282,6 +1471,7 @@ function setLink(el,blob,filename){
 let studentVorname="", studentNachname="";
 let escapeRed=[];     // Texte der roten Felder im Escape-Room-Modus
 let escapeCtx=null;   // Steckbrief des Escape-Rooms (Fach, Jahrgangsstufe, Thema, erarbeitete Inhalte) für die KI-Bewertung
+let escapeOverviewStreams=[];   // Überblicksseiten (Content-Streams) aus einer hochgeladenen Überblick- oder Zwischenstand-PDF
 let escapeMode=false; // true: aus einem Escape-Room gestartet (Autostart oder Überblick-PDF)
 let prefilled=false;  // true: Aufgaben wurden vorbefüllt (Escape-Room, Lerntagebuch)
 
@@ -1296,7 +1486,7 @@ function renderMoodleHints(){
 function hideDlPanel(){ const dp=$("dl-panel"); if(dp) dp.classList.add("hidden"); }
 function makePdfName(){
   if(typeof CFG.pdfName==="function") return CFG.pdfName(studentVorname,studentNachname);
-  if(escapeMode) return fileSafe("Escape Room Daten von "+studentVorname+" "+studentNachname)+".pdf";
+  if(escapeMode) return fileSafe("Abgeschlossener Escape-Room von "+studentVorname+" "+studentNachname)+".pdf";
   return fileSafe("Text von "+studentVorname)+".pdf";
 }
 /* Zwischenstand: „Zwischenstand vom TT.MM.JJJJ um hh.mm von Vorname Nachname.pdf" (Doppelpunkt ist in Dateinamen nicht erlaubt) */
@@ -1788,7 +1978,7 @@ $("start-btn").addEventListener("click",()=>{
   if(!v||!n){$("start-err").textContent="Bitte Vor- und Nachnamen eintragen.";return;}
   studentVorname=v; studentNachname=n;
   $("who-name").textContent=v+" "+n;
-  escapeMode=false; escapeRed=[]; escapeCtx=null; renderMoodleHints();          // normaler Modus: keine roten Felder
+  escapeMode=false; escapeRed=[]; escapeCtx=null; escapeOverviewStreams=[]; renderMoodleHints();          // normaler Modus: keine roten Felder
   const tasks=Array.isArray(CFG.prefill)?CFG.prefill:[];
   prefilled=tasks.length>0;
   fillEditor(tasks, CFG.prefillLabels?(i=>"Aufgabe "+(i+1)):null);
@@ -1833,6 +2023,7 @@ async function readResumePdf(file){
     const mm=str.match(TRACK_RE);
     if(!mm){ $("resume-err").textContent="In dieser PDF wurden keine Feiditor-Daten gefunden. Bitte lade eine Zwischenstand-PDF aus dem Feiditor hoch."; return; }
     const {payload}=await autoDecrypt(mm[1]);
+    escapeOverviewStreams=(payload&&payload.e&&payload.e.esc)?overviewStreamsFrom(str):[];
     resumeFromPayload(payload);
   }catch(err){ $("resume-err").textContent="Der Zwischenstand konnte nicht gelesen werden: "+(err.message||"unbekannter Fehler"); }
 }
@@ -1875,6 +2066,7 @@ function readEscapePdf(file){
     let d;
     try{ d=JSON.parse(decodeURIComponent(escape(atob(mm[1])))); }
     catch(e){ $("esc-err").textContent="Die Escape-Room-Daten konnten nicht gelesen werden."; return; }
+    escapeOverviewStreams=overviewStreamsFrom(str);   // Überblicksseiten für die fertige PDF
     startEscapeMode(d.v,d.n,d.t,d.r,d.c);
   };
   fr.onerror=()=>{$("esc-err").textContent="Datei konnte nicht gelesen werden.";};
@@ -1980,7 +2172,7 @@ async function exportPdf(interim){
     // PDF: formatierter Text (Aufgaben fett) + roter Moodle-Hinweis; im Escape-Room zusätzlich die Übersichts-Seiten;
     // Tracking-Daten stecken (verschlüsselt) als %TRACKDATA drin
     const overview=(window.__ESCAPE_DATA__&&window.__ESCAPE_DATA__.overview)||null;
-    const pdfStr=buildPdf({name,text,fmt,trackB64:bundle,overview});
+    const pdfStr=buildPdf({name,text,fmt,trackB64:bundle,overview,overviewStreams:escapeOverviewStreams});
     const u8=new Uint8Array(pdfStr.length);
     for(let i=0;i<pdfStr.length;i++)u8[i]=pdfStr.charCodeAt(i)&0xFF;
     // octet-stream im Escape-Room-Modus: erzwingt Speichern statt Anzeigen
@@ -2295,7 +2487,7 @@ class PdfDoc{
     if(line) put(line);
     return curY;
   }
-  build(){
+  build(headComment){
     const objects=[null,null,
       '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica /Encoding /WinAnsiEncoding >>',
       '<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica-Bold /Encoding /WinAnsiEncoding >>'];
@@ -2308,7 +2500,7 @@ class PdfDoc{
     }
     objects[1]=`<< /Type /Pages /Kids [${pageIds.map(i=>i+' 0 R').join(' ')}] /Count ${pageIds.length} >>`;
     objects[0]='<< /Type /Catalog /Pages 2 0 R >>';
-    let pdf='%PDF-1.4\n%\xC4\xC5\xC6\xC7\n'; const offsets=[0];
+    let pdf='%PDF-1.4\n%\xC4\xC5\xC6\xC7\n'+(headComment?headComment.replace(/^\n+|\n+$/g,'')+'\n':''); const offsets=[0];
     for(let i=0;i<objects.length;i++){ offsets.push(pdf.length); pdf+=`${i+1} 0 obj\n${objects[i]}\nendobj\n`; }
     const xrefOffset=pdf.length;
     pdf+=`xref\n0 ${objects.length+1}\n0000000000 65535 f \n`;
@@ -2316,7 +2508,9 @@ class PdfDoc{
     pdf+=`trailer\n<< /Size ${objects.length+1} /Root 1 0 R >>\nstartxref\n${xrefOffset}\n%%EOF\n`;
     return pdf;
   }
-  toBase64(trailerComment){ let pdf=this.build(); if(trailerComment) pdf+=trailerComment; return btoa(pdf); }
+  // Kennung als Kommentarzeile direkt nach dem Kopf (wie %TRACKDATA im Feiditor), nicht hinter %%EOF: so bleibt startxref
+  // in den letzten Bytes der Datei und PDF-Werkzeuge müssen nichts reparieren.
+  toBase64(headComment){ return btoa(this.build(headComment)); }
 }
 
 /* ============================================================
@@ -2372,21 +2566,25 @@ function generateOverviewPdf(){
 
   let y=header('Überblick deiner Antworten & Erläuterungen');
 
-  // Pflichthinweis (fett) + Feiditor-Notfall-Tipp (ganz oben)
-  doc.rect(M,y-82,CW,82,[255,246,212]);
-  doc.rect(M,y-82,3,82,ACCENT);
-  const yTop=doc.paragraph('Diese Datei musst du bei Moodle in der dafür vorgesehenen Abgabe hochladen, um deinem Lehrer nachzuweisen, dass du den Escape-Room erfolgreich absolviert hast.',
-    M+12,y-16,CW-24,10.5,true,PRIMARY,13.5);
-  doc.paragraph('Notfall-Tipp: Falls du den Link zum digitalen Arbeitsblatt (Feiditor) nicht mehr hast, kannst du diese PDF-Datei auf https://feiditor.janrickmer.de/ hochladen, um den Feiditor mit deinen Aufgaben erneut zu öffnen.',
-    M+12,yTop-6,CW-24,9,false,[128,105,78],12);
-  y-=82+14;
+  // Hinweis (fett) + Fortsetzen-Tipp (ganz oben). Diese Seiten gibt es allein (Pause) und angehängt an die fertige
+  // Abgabe aus dem eigenständigen Feiditor – der Text gilt für beides. Kastenhöhe nach Zeilenzahl.
+  const NOTE1='Diese Seiten gehören zu deiner Abgabe bei Moodle – als Teil der fertigen Datei „Abgeschlossener Escape-Room von …“, die am Ende des Finales im Feiditor entsteht.';
+  const NOTE2='Hinweis: Mit dieser Überblick-PDF kannst du das Finale jederzeit auf https://feiditor.janrickmer.de/ fortsetzen (Auswahl „Ich komme aus einem Escape-Room …“).';
+  const lineCount=(str,size,bold,width)=>{ let line='',n=0; for(const w of String(str).split(/\s+/).filter(Boolean)){ const t=line?line+' '+w:w; if(pdfStringWidth(t,size,bold)<=width) line=t; else { n++; line=w; } } return line?n+1:n; };
+  const boxH=16+lineCount(NOTE1,10.5,true,CW-24)*13.5+4+lineCount(NOTE2,9,false,CW-24)*12+6;
+  doc.rect(M,y-boxH,CW,boxH,[255,246,212]);
+  doc.rect(M,y-boxH,3,boxH,ACCENT);
+  const yTop=doc.paragraph(NOTE1,M+12,y-16,CW-24,10.5,true,PRIMARY,13.5);
+  doc.paragraph(NOTE2,M+12,yTop-4,CW-24,9,false,[128,105,78],12);
+  y-=boxH+14;
 
   // Identifikationsblock
   const blockH=78;
   doc.rect(M,y-blockH,CW,blockH,[252,243,214]);
   doc.rect(M,y-blockH,3,blockH,ACCENT);
   doc.text('NAME',M+14,y-16,8,true,ACCENT);
-  doc.text(state.firstName+' '+state.lastName,M+14,y-31,13,true,PRIMARY);
+  const nameStr=state.firstName+' '+state.lastName;
+  doc.text(nameStr,M+14,y-31,pdfStringWidth(nameStr,13,true)>270?10:13,true,PRIMARY);   // lange Namen kleiner, damit sie nicht in die Code-Spalte laufen
   doc.text('GEBURTSDATUM',M+14,y-49,8,true,ACCENT);
   doc.text(state.birthDate,M+14,y-63,11,false,TEXT);
   doc.text('BESTÄTIGUNGSCODE',M+300,y-16,8,true,ACCENT);
@@ -2395,7 +2593,7 @@ function generateOverviewPdf(){
   doc.text(fmtDateTime(state.completedAt),M+300,y-63,11,false,TEXT);
   y-=blockH+18;
 
-  y=doc.paragraph('Dieses Dokument fasst zusammen, welche Antworten du in jeder Station beim ersten Versuch gegeben hast. Du hast jede Station am Ende erfolgreich gelöst – diese Übersicht zeigt nur, wo es anfangs noch hakte. Auf der zweiten Seite findest du ausführliche Lösungserläuterungen.',
+  y=doc.paragraph('Dieses Dokument fasst zusammen, welche Antworten du in jeder Station beim ersten Versuch gegeben hast. Du hast jede Station am Ende erfolgreich gelöst – diese Übersicht zeigt nur, wo es anfangs noch hakte. Auf den folgenden Seiten findest du ausführliche Lösungserläuterungen.',
     M,y,CW,10.5,false,TEXT,14);
   y-=8;
 
@@ -2481,12 +2679,12 @@ function generateOverviewPdf(){
   doc.text('Copyright Jan-Rickmer Feindt',M,y2,8.5,false,MUTE);
   doc.endPage();
 
-  // Versteckte Rekonstruktionsdaten für den Standalone-Feiditor (nach %%EOF, von PDF-Viewern ignoriert).
-  // Enthält: Vorname, Nachname, die sechs Feiditor-Aufgaben und die beiden roten Feldtexte.
+  // Versteckte Rekonstruktionsdaten für den Standalone-Feiditor (Kommentarzeile nach dem PDF-Kopf, von PDF-Viewern ignoriert).
+  // Enthält: Vorname, Nachname, die sechs Feiditor-Aufgaben, den roten Feldtext und den Steckbrief.
   const escData={ v:state.firstName, n:state.lastName, t:REFLECT_TASKS.slice(0,6), r:RED_FIELDS, c: ROOM_CONTEXT };
   let escB64=''; try{ escB64=btoa(unescape(encodeURIComponent(JSON.stringify(escData)))); }catch(e){ escB64=''; }
-  const trailer=escB64 ? ('\n%ESCAPEDATA '+escB64+'\n') : '';
-  return doc.toBase64(trailer);
+  const headComment=escB64 ? ('%ESCAPEDATA '+escB64) : '';
+  return doc.toBase64(headComment);
 }
 
 /* ============================================================
@@ -2619,13 +2817,19 @@ window.downloadOverviewPDF=()=>{
     const filename=`Escape-Room-Überblick_von_${fn}_${ln}.pdf`;
     const binary=atob(b64); const bytes=new Uint8Array(binary.length);
     for(let i=0;i<binary.length;i++) bytes[i]=binary.charCodeAt(i);
-    const blob=new Blob([bytes],{type:'application/pdf'});
+    // application/octet-stream statt application/pdf: Der Browser SPEICHERT die Datei, statt sie
+    // anzuzeigen (Firefox-Standard „PDF im Browser öffnen" würde sie sonst nur anzeigen).
+    // Die Datei selbst bleibt eine normale PDF; die Endung .pdf kommt über das download-Attribut.
+    const blob=new Blob([bytes],{type:'application/octet-stream'});
     const url=URL.createObjectURL(blob);
-    window.open(url,'_blank');                                   // 1) PDF im neuen Tab öffnen
-    const link=document.createElement('a'); link.href=url; link.download=filename;
-    document.body.appendChild(link); link.click(); document.body.removeChild(link);  // 2) gleichzeitig herunterladen
-    setTimeout(()=>URL.revokeObjectURL(url),60000);              // Object-URL erst spät freigeben
-  }catch(e){ console.error(e); alert('Konnte die Datei nicht erzeugen: '+e.message); }
+    // Unsichtbarer Link, synchron im Klick-Handler ausgelöst – kein window.open, kein neuer Tab.
+    const link=document.createElement('a');
+    link.href=url; link.download=filename; link.style.display='none';
+    document.body.appendChild(link);
+    link.click();
+    // Link und Object-URL erst nach ein paar Sekunden entfernen, damit der Download sicher anläuft.
+    setTimeout(()=>{ try{ document.body.removeChild(link); }catch(_){} URL.revokeObjectURL(url); },5000);
+  }catch(e){ console.error(e); alert('Konnte die Datei „Escape-Room-Überblick" nicht erzeugen: '+e.message); }
 };
 window.downloadReflexionPDF=()=>{
   try{
@@ -2644,15 +2848,29 @@ window.openFeiditor=()=>{
     if(!tplEl){ alert('Der Feiditor konnte nicht geladen werden.'); return; }
     // Eingebetteten Feiditor-Quelltext holen und die escapten Script-End-Tags wiederherstellen
     let html=tplEl.textContent.replace(/<\\\/script>/gi,'<\/script>');
-    // Escape-Room-Daten + die ersten sechs Aufgaben in den Feiditor injizieren (vor </head>)
+    // Escape-Room-Daten in den Feiditor injizieren (vor </head>): Name, die ersten sechs Aufgaben, das rote Feld,
+    // der Steckbrief und alle Daten für die Überblicksseiten der kombinierten PDF
     const data={
       firstName: state.firstName,
       lastName:  state.lastName,
       birthDate: state.birthDate,
       code:      state.code,
       tasks:     REFLECT_TASKS.slice(0,6),
-      red:       RED_FIELDS,
-      ctx:       ROOM_CONTEXT
+      redFields: RED_FIELDS,
+      ctx:       ROOM_CONTEXT,
+      overview:  {
+        firstName:     state.firstName,
+        lastName:      state.lastName,
+        birthDate:     state.birthDate,
+        code:          state.code,
+        completedAt:   fmtDateTime(state.completedAt),
+        attempts:      state.attempts,
+        mistakes:      state.mistakes,
+        roomLabels:    ROOM_LABELS,
+        solutionNotes: SOLUTION_NOTES,
+        subtitle:      'Politik & Wirtschaft · Projektwoche Finanzielle Bildung · Escape-Room „Das Vermögensgeheimnis"',
+        resumeNotes:   saveLogPdfLines()
+      }
     };
     const inject='<script>window.__ESCAPE_DATA__='+JSON.stringify(data).replace(/</g,'\\u003c')+';<\/script>';
     if(html.indexOf('</head>')!==-1) html=html.replace('</head>', inject+'\n</head>');
@@ -2708,7 +2926,7 @@ function renderStart(){
     <div class="card card-accent" style="max-width:640px;">
       <h3 style="font-size:21px; margin-bottom:14px;">Bevor du den Tresor öffnest</h3>
       <p class="text-mute" style="margin-bottom:20px; font-size:14.5px;">
-        Trage deinen vollen Namen und dein Geburtsdatum ein. Beides erscheint später auf deinen beiden Dateien für Moodle.
+        Trage deinen vollen Namen und dein Geburtsdatum ein. Beides erscheint später auf deiner PDF-Datei für Moodle.
       </p>
       <div style="display:grid; grid-template-columns:1fr 1fr; gap:16px; margin-bottom:16px;">
         <div>
@@ -2787,7 +3005,7 @@ function renderIntro(){
         <li>Jeder gelöste Zettel deckt einen Buchstaben des Lösungsworts auf. Sammle alle sechs.</li>
         <li>Falsche Eingaben werden markiert und erklärt – du darfst es erneut versuchen.</li>
         <li>Die Rätsel prüfen Begriffe und Zusammenhänge aus den Notizzetteln. Deine eigenen Gedanken dazu hältst du am Ende im Feiditor fest.</li>
-        <li>Am Ende lädst du in Moodle zwei PDF-Dateien hoch: deinen persönlichen Überblick und dein digitales Arbeitsblatt aus dem Feiditor.</li>
+        <li>Am Ende lädst du in Moodle eine PDF-Datei hoch: dein digitales Arbeitsblatt aus dem Feiditor, das auch deinen persönlichen Überblick enthält.</li>
       </ul>
       <div style="margin-top:14px; font-size:13.5px; color:var(--ink-mute);">
         Angemeldet als <strong style="color:var(--ink)">${escapeHtml(state.firstName)} ${escapeHtml(state.lastName)}</strong> · geb. ${escapeHtml(state.birthDate)}
@@ -3544,36 +3762,86 @@ function renderFinal(){
     : `Du hast ${perfectRooms} von 6 Abschnitten im ersten Versuch fehlerfrei gelöst (${totalErrors} Erstversuchs-Fehler). Im Überblick findest du alle mit Erklärung.`;
 
   root.innerHTML=`
-    <div class="final-hero">
-      <div class="kicker" style="justify-content:center;">Tresor geöffnet · Lösungswort</div>
-      <div class="final-code">${CODE_WORD}</div>
-      <p class="lede" style="margin:20px auto 0; max-width:60ch;">
-        Geschafft, ${escapeHtml(state.firstName)}. Du hast alle sechs Notizzettel von Großonkel Konrad entschlüsselt und damit sein <strong>Vermögensgeheimnis</strong> gelüftet. Es war nie ein Trick – sondern ein einziges Wort, das er ein Leben lang beherzigt hat.
-      </p>
-      <p class="text-mute" style="margin-top:12px; max-width:60ch; margin-left:auto; margin-right:auto; font-size:13.5px;">${summary}</p>
-    </div>
-
-    <div class="emblem-wrap">
-      ${euStarsSvg()}
-      <div class="emblem-cap">Großonkel Konrads Tresor · endlich geöffnet</div>
-    </div>
-
-    <div class="card">
-      <h2 style="font-size:22px; margin-bottom:6px;">Zwei Schritte zum Abschluss</h2>
-      <p class="text-mute" style="font-size:13.5px; margin-bottom:20px;">Beide sind nötig, damit deine Lehrkraft den Abschluss verbuchen kann.</p>
-      <div class="final-actions">
-        <button class="final-action" onclick="downloadOverviewPDF()">
-          <div class="label">Schritt 1 · Pflicht</div>
-          <div class="title">„Überblick deiner Antworten &amp; Erläuterungen" herunterladen</div>
-          <div class="desc">Persönliche PDF mit deinem Namen, Geburtsdatum, Bestätigungscode und Abschlusszeit, deinen Antworten im ersten Versuch sowie einer Seite mit Lösungserläuterungen. <strong style="color:var(--primary)">Lade sie in Moodle hoch.</strong></div>
-        </button>
-        <button class="final-action" onclick="openFeiditor()">
-          <div class="label">Schritt 2 · Reflexion</div>
-          <div class="title">Arbeitsblatt im Feiditor öffnen</div>
-          <div class="desc">Der Feiditor öffnet sich in einem neuen Fenster mit deinen sechs Reflexionsaufgaben. Beantworte sie dort, wandle deinen Text in eine PDF um und <strong style="color:var(--primary)">lade auch diese PDF in Moodle hoch.</strong></div>
-        </button>
+    <div class="mid-hero">
+      <div class="kicker" style="justify-content:center;">Zwischenstand · Etappe 1 von 2 geschafft</div>
+      <h1 class="section-title">Der Tresor ist offen – jetzt kommt das Finale</h1>
+      <div class="mid-steps">
+        <span class="mid-step done">✓ Etappe 1 · Sechs Notizzettel</span>
+        <span class="code-badge"><small>Lösungswort</small>${CODE_WORD}</span>
+        <span class="mid-step next">Etappe 2 · Finale gegen den Feiditor</span>
       </div>
+      <p class="lede" style="margin:14px auto 0; max-width:60ch;">Geschafft, ${escapeHtml(state.firstName)} – aber der Escape-Room ist noch nicht vorbei: In der Arena zeigst du jetzt schriftlich, was du verstanden hast.</p>
     </div>
+
+    <div class="arena">
+      <div class="arena-kicker">Etappe 2 · Das Finale</div>
+      <h2>Erst das Video, dann durch den Gang</h2>
+      <div class="video-wrap">
+        <iframe src="https://www.youtube-nocookie.com/embed/Sh0REtJ1o5w?rel=0" title="Bevor du die Arena betrittst" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+      </div>
+      <div class="fallback-line">
+        <span>Video lädt nicht oder zeigt einen Fehler?</span>
+        <a class="btn btn-ghost" href="https://www.youtube.com/watch?v=Sh0REtJ1o5w" target="_blank" rel="noopener noreferrer">Direkt auf YouTube öffnen ↗</a>
+      </div>
+      <button class="arena-gate" onclick="openFeiditor()" aria-label="Finale gegen den Feiditor betreten">
+        <svg viewBox="0 0 800 460" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Ein dunkler Gang führt auf das hell erleuchtete Spielfeld einer Arena">
+          <defs>
+            <linearGradient id="arWallL" x1="0" y1="0" x2="1" y2="0"><stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#25324f"/></linearGradient>
+            <linearGradient id="arWallR" x1="1" y1="0" x2="0" y2="0"><stop offset="0" stop-color="#0b1220"/><stop offset="1" stop-color="#25324f"/></linearGradient>
+            <linearGradient id="arCeil" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#05080f"/><stop offset="1" stop-color="#1b2744"/></linearGradient>
+            <linearGradient id="arFloor" x1="0" y1="1" x2="0" y2="0"><stop offset="0" stop-color="#080d18"/><stop offset="1" stop-color="#2a3856"/></linearGradient>
+            <linearGradient id="arSky" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#1a2a4c"/><stop offset="1" stop-color="#6a8fc4"/></linearGradient>
+            <linearGradient id="arGrass" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="#62c45c"/><stop offset="1" stop-color="#2d8a3c"/></linearGradient>
+            <radialGradient id="arGlow" cx="50%" cy="55%" r="60%"><stop offset="0" stop-color="#fff8e1" stop-opacity="1"/><stop offset="0.5" stop-color="#d9f0c8" stop-opacity=".7"/><stop offset="1" stop-color="#d9f0c8" stop-opacity="0"/></radialGradient>
+            <pattern id="arCrowd" width="9" height="8" patternUnits="userSpaceOnUse"><circle cx="4" cy="4" r="1.5" fill="#ffd97a"/></pattern>
+          </defs>
+          <rect width="800" height="460" fill="#05080f"/>
+          <g class="gate-field">
+            <rect x="300" y="140" width="200" height="200" fill="url(#arSky)"/>
+            <rect x="300" y="196" width="200" height="66" fill="#1f2f4f"/>
+            <rect x="300" y="200" width="200" height="60" fill="url(#arCrowd)" opacity=".55"/>
+            <rect x="300" y="262" width="200" height="78" fill="url(#arGrass)"/>
+            <line x1="300" y1="300" x2="500" y2="300" stroke="#fff" stroke-opacity=".75" stroke-width="1.4"/>
+            <circle cx="400" cy="300" r="20" fill="none" stroke="#fff" stroke-opacity=".75" stroke-width="1.4"/>
+            <rect x="300" y="262" width="200" height="78" fill="none" stroke="#fff" stroke-opacity=".5" stroke-width="1.2"/>
+            <g fill="#fff6d5" opacity=".95">
+              <rect x="318" y="150" width="4" height="52" rx="1"/><rect x="304" y="146" width="32" height="7" rx="2"/>
+              <rect x="478" y="150" width="4" height="52" rx="1"/><rect x="464" y="146" width="32" height="7" rx="2"/>
+            </g>
+            <ellipse cx="400" cy="240" rx="150" ry="118" fill="url(#arGlow)" opacity=".7"/>
+          </g>
+          <polygon points="0,0 300,140 300,340 0,460" fill="url(#arWallL)"/>
+          <polygon points="800,0 500,140 500,340 800,460" fill="url(#arWallR)"/>
+          <polygon points="0,0 800,0 500,140 300,140" fill="url(#arCeil)"/>
+          <polygon points="0,460 800,460 500,340 300,340" fill="url(#arFloor)"/>
+          <g stroke="#3b4d74" stroke-width="1" opacity=".5">
+            <line x1="90" y1="460" x2="325" y2="340"/><line x1="215" y1="460" x2="355" y2="340"/><line x1="400" y1="460" x2="400" y2="340"/><line x1="585" y1="460" x2="445" y2="340"/><line x1="710" y1="460" x2="475" y2="340"/>
+            <line x1="0" y1="118" x2="300" y2="192"/><line x1="0" y1="232" x2="300" y2="242"/><line x1="0" y1="346" x2="300" y2="292"/>
+            <line x1="800" y1="118" x2="500" y2="192"/><line x1="800" y1="232" x2="500" y2="242"/><line x1="800" y1="346" x2="500" y2="292"/>
+            <line x1="150" y1="70" x2="300" y2="140"/><line x1="150" y1="390" x2="300" y2="340"/><line x1="650" y1="70" x2="500" y2="140"/><line x1="650" y1="390" x2="500" y2="340"/>
+          </g>
+          <g fill="#ffe9a8" opacity=".85">
+            <rect x="140" y="52" width="40" height="6" rx="3"/><rect x="232" y="92" width="30" height="5" rx="2.5"/><rect x="288" y="122" width="20" height="4" rx="2"/>
+            <rect x="620" y="52" width="40" height="6" rx="3"/><rect x="538" y="92" width="30" height="5" rx="2.5"/><rect x="492" y="122" width="20" height="4" rx="2"/>
+          </g>
+          <ellipse class="gate-glow" cx="400" cy="240" rx="230" ry="190" fill="url(#arGlow)"/>
+          <rect x="300" y="140" width="200" height="200" fill="none" stroke="#d6b25e" stroke-width="2.5" opacity=".9"/>
+        </svg>
+        <span class="arena-enter">Finale gegen den Feiditor betreten <span aria-hidden="true">→</span></span>
+      </button>
+      <div class="arena-foot">Der Gang führt zum <strong style="color:#f0cf78">Feiditor</strong> (neuer Tab), deine Aufgaben sind dort schon eingetragen. Am Ende wandelst du deinen Text in eine PDF-Datei um – sie enthält auch deinen Überblick – und lädst sie bei Moodle hoch.</div>
+    </div>
+
+    <div class="pause-card">
+      <button class="pause-btn" onclick="downloadOverviewPDF()">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3v12"/><path d="m7 10 5 5 5-5"/><path d="M4 19h16"/></svg>
+        Erstmal eine Pause machen und den Zwischenstand herunterladen
+      </button>
+      <p class="text-mute" style="font-size:13.5px; margin:12px 0 0;">Du bekommst deine Überblick-PDF mit deinen Antworten, deinem Code und den Lösungserläuterungen. Wenn du weitermachen willst, lade sie auf <strong>feiditor.janrickmer.de</strong> hoch (Auswahl „Ich komme aus einem Escape-Room …“) – dann öffnet sich das Finale mit deinen Aufgaben. Bei Moodle lädst du erst die fertige Datei „Abgeschlossener Escape-Room von …“ hoch.</p>
+    </div>
+
+    <div class="readmore"><span>Zum Nachlesen</span></div>
+    <p class="text-mute" style="text-align:center; font-size:13.5px; margin:-4px 0 14px;">${summary}</p>
 
     <div class="card">
       <div class="steck-card">
@@ -3600,6 +3868,11 @@ function renderFinal(){
         <li><strong>Steuern auf Erträge</strong> – Abgeltungssteuer, Sparerpauschbetrag und Freistellungsauftrag</li>
         <li><strong>Der Zinseszinseffekt</strong> – Zinsen auf Zinsen, und warum die Zeit der größte Hebel ist</li>
       </ul>
+    </div>
+
+    <div class="emblem-wrap small">
+      ${euStarsSvg()}
+      <div class="emblem-cap">Großonkel Konrads Tresor · endlich geöffnet</div>
     </div>
   `;
 }
